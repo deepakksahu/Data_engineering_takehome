@@ -17,8 +17,6 @@ class Immobilienscout(object):
 
     def getSummary(self):
         response = self._get_response("get_summary")
-        #         print(response.status_code)
-        #         print(response.text)
         if response.status_code not in (200, 202):
             print(response.status_code)
             print(response.text)
@@ -27,8 +25,6 @@ class Immobilienscout(object):
 
     def getList(self, page_number):
         response = self._get_response("get_list?page={}".format(page_number))
-        #         print(response.status_code)
-        #         print(response.text)
         if response.status_code not in (200, 202):
             print(response.status_code)
             print(response.text)
@@ -37,8 +33,6 @@ class Immobilienscout(object):
 
     def getData(self, flat_id):
         response = self._get_response("/get_data?id={}".format(flat_id))
-        #         print(response.status_code)
-        #         print(response.text)
         if response.status_code not in (200, 202):
             print(response.status_code)
             print(response.text)
