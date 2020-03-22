@@ -1,26 +1,50 @@
 
-Technical Task for a position of Data Engineer @ CrossLend
-Dear candidate
+    Solution to Technical Task for a position of Data Engineer @ CrossLend
 
-As part of the recruitment process, we would like to ask you to complete the following assessment which should take not more than couple of evenings of your time. Please do your best and aim for an end-to-end MVP solution.
+** [Description](https://github.com/crosslend/data_engineer_coding_exercise) :**
 
-As a result of the exercise, we expect to receive a link to the github or gitlab repo with a working executable code base instructions on how to run it, and with a detailed report (as markdown README.md file) containing justification of your tech choices.
+We would like to propose that you familiarize yourself
+with the housing market in Berlin, and hence suggest that you to build  
+a data pipeline to integrate the data for the flats available for rent  
+in Berlin. The  objective of this pipeline is to deliver data to the  
+analytics layer for data science research.
 
-Description
-We would like to propose that you familiarize yourself with the housing market in Berlin, and hence suggest that you to build a data pipeline to integrate the data for the flats available for rent in Berlin. The objective of this pipeline is to deliver data to the analytics layer for data science research.
+**Approach:**
+1. created an class which will consist of all the API calls.
+2. In the **main.py** create an object for the class and use the same
+   for any api call.
+3. Modularise the code according to their functioning.
+4. Added logging for better debugging.
+5. Added required comments to increase the readability of the code.
+6. Added the Docker file to containerize the solution.
+7. Added all the dependency in requirements.txt
+8. Writing the DF to s3 as well as postgres.
+9. Added the airflow DAG consider we have k8s to spin pods.
 
-In order to achieve the objective, we would like to propose the following approach for you:
+**Command: **  
+`python main.py
+--config '{"key":"dffbab93-44e9-41c2-bfff-6bab66c89b6c", "s3_output_location": "s3://crosslen_datalake/homeloans/",
+"user":"sysadmin", "password":"sysadmin@123", "host":"127.0.0.1",
+"port":"5432", "database":"postgres_db"}'`
 
-Build a stateless service to fetch raw data from the source using the set of API end-points. The service objectives:
+**Config**  
+*A variable to be created in Airflow named: immobilienscout24_conf*
 
-Authenticate with API (you will be provided with required access keys)
-Fetch all available data
-Store unchanged raw data to the data persistence layer (e.g. on disk) partitioned by date
-Flatten nested json from the API response payload
-Write data to the "hot storage" (e.g. PostgreSQL)
-Build a stateless service to map/transform raw data to align with the analytics layer SLA. The service objectives:
+    {"key":"dffbab93-44e9-41c2-bfff-6bab66c89b6c",
+    "s3_output_location": "s3://crosslen_datalake/homeloans/",  
+    "user":"sysadmin",  
+    "password":"sysadmin@123",  
+    "host":"127.0.0.1", "port":"5432",  
+    "database":"postgres_db"}
 
-Connect to the "hot storage"
-Read the mapping/transformation SQL queries
-Execute transformation SQL queries
-It is recommended that you design the pipeline to be stateless with independent services. The pipeline should operate on schedule with daily trigger. Optionally, you can propose an orchestration solution to trigger the pipeline.
+**Deployment:**  
+Image (named *flat-data-ingestion*) to be build using Jenkins and and  
+update in the airflow variable  *crosslend_images_config*
+
+Schedule in the DAG is for everyday.
+
+*P.S : All the scheduling assumption as per the current env. I am  
+working. This can very accordingly.*
+
+*P.P.S : The host am using is not working anymore. Hence the write to  
+destination part is needs more testing.*
