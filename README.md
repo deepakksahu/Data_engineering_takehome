@@ -3,11 +3,7 @@
 
 ** [Description](https://github.com/crosslend/data_engineer_coding_exercise) :**
 
-We would like to propose that you familiarize yourself
-with the housing market in Berlin, and hence suggest that you to build  
-a data pipeline to integrate the data for the flats available for rent  
-in Berlin. The  objective of this pipeline is to deliver data to the  
-analytics layer for data science research.
+We would like to propose that you familiarize yourself with the housing market in Berlin, and hence suggest that you to build a data pipeline to integrate the data for the flats available for rent in Berlin. The  objective of this pipeline is to deliver data to the analytics layer for data science research.
 
 **Approach:**
 1. created an class which will consist of all the API calls.
@@ -38,13 +34,10 @@ analytics layer for data science research.
     "database":"postgres_db"}
 
 **Deployment:**  
-Image (named *flat-data-ingestion*) to be build using Jenkins and and  
-update in the airflow variable  *crosslend_images_config*
+Image (named *flat-data-ingestion*) to be build using Jenkins and and update in the airflow variable  *crosslend_images_config*
 
 Schedule in the DAG is for everyday.
 
-*P.S : All the scheduling assumption as per the current env. I am  
-working. This can very accordingly.*
+*P.S : All the scheduling assumption as per the current env. I am working. This can very accordingly.*
 
-*P.P.S : The host am using is not working anymore. Hence the write to  
-destination part is needs more testing.*
+*P.P.S : The host am using is not working anymore. Hence the write to destination part is needs more testing.*
