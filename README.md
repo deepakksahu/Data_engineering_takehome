@@ -5,16 +5,16 @@
 We would like to propose that you familiarize yourself with the housing market in Berlin, and hence suggest that you to build a data pipeline to integrate the data for the flats available for rent in Berlin. The  objective of this pipeline is to deliver data to the analytics layer for data science research.
 
 **Approach:**
-1. created an class which will consist of all the API calls.
+1. Create a class which will consist of all the API calls.
 2. In the **main.py** create an object for the class and use the same
    for any api call.
 3. Modularise the code according to their functioning.
-4. Added logging for better debugging.
-5. Added required comments to increase the readability of the code.
-6. Added the Docker file to containerize the solution.
-7. Added all the dependency in requirements.txt
-8. Writing the DF to s3 as well as postgres.
-9. Added the airflow DAG consider we have k8s to spin pods.
+4. Add logging for better debugging.
+5. Add required comments to increase the readability of the code.
+6. Add the docker file to containerize the solution.
+7. Add all the dependency in requirements.txt.
+8. Write the DF to s3 as well as postgres.
+9. Add the airflow DAG consider we have k8s to spin pods.
 
 **Command:**  
 `python main.py
